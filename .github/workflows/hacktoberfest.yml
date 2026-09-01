@@ -10,10 +10,12 @@ on:
 jobs:
   hacktoberfest:
     runs-on: ubuntu-latest
-
+    permissions:
+      contents: read
+      issues: write
     steps:
       - name: Check out
         uses: actions/checkout@v7
       - uses: ./
         with:
-          github_token: ${{ secrets.GH_PAT }}
+          github_token: ${{ secrets.GITHUB_TOKEN }}
